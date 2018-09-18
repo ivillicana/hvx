@@ -29,12 +29,12 @@ class LogInForm extends Component {
 
           <div className="form-group">
             <label htmlFor="logInEmail">Email address</label>
-            <input type="email" className="form-control" id="logInEmail" placeholder="Enter Email"value={this.state.logInEmail} onChange={this.handleOnChange}/>
+            <input type="email" className="form-control" id="logInEmail" placeholder="Enter Email" value={this.state.logInEmail} onChange={this.handleOnChange}/>
           </div>
 
           <div className="form-group">
             <label htmlFor="logInPassword">Password</label>
-            <input type="password" className="form-control" id="logInPassword"placeholder="Password"value={this.state.logInPassword} onChange={this.handleOnChange}/>
+            <input type="password" className="form-control" id="logInPassword"placeholder="Password" value={this.state.logInPassword} onChange={this.handleOnChange}/>
           </div>
 
           <button type="submit" className="btn btn-primary">Log In</button>
