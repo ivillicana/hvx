@@ -7,8 +7,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Home from './components/Home';
-import LogIn from './components/LogIn';
+import Home from './containers/Home';
+import LogIn from './containers/LogIn';
 import NavBar from './containers/NavBar'
 import Footer from './containers/Footer'
 
