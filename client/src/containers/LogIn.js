@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import LogInForm from '../components/LogInForm'
 import SignUpForm from '../components/SignUpForm'
+import {createUser} from '../actions/userActions'
 
 class LogIn extends Component {
   render() {
@@ -24,7 +26,7 @@ class LogIn extends Component {
           
           <div className="col-md-5">
             <div className="bs-component">
-              <SignUpForm />
+              <SignUpForm createUser={this.props.createUser}/>
             </div>
           </div>
         
@@ -34,4 +36,4 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+export default connect(null, {createUser})(LogIn);
