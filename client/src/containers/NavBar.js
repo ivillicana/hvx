@@ -8,7 +8,7 @@ class NavBar extends Component {
     }
     return (
      <React.Fragment>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
         <a className="navbar-brand" href="#">Hudson Valley Xplorer</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -24,10 +24,18 @@ class NavBar extends Component {
               ><span className="nav-link">Home</span></NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Features</a>
+              <NavLink
+                to="/activities"
+                exact
+                activeStyle={activeLinkStyle}
+                ><span className="nav-link">Activities</span></NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Pricing</a>
+            <NavLink
+                to="/eat-drink"
+                exact
+                activeStyle={activeLinkStyle}
+                ><span className="nav-link">Eat & Drink</span></NavLink>
             </li>
             <li className="nav-item">
               <NavLink
