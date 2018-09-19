@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom'
 
 class SignUpForm extends Component {
   state = {
@@ -14,20 +15,20 @@ class SignUpForm extends Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault()
-    //dispatch action
-    this.setState({
-      signUpName: '',
-      signUpEmaill: '',
-      signUpPassword: '',
-      signUpPasswordConfirmation: ''
-    })
+      this.setState({
+        signUpName: '',
+        signUpEmail: '',
+        signUpPassword: '',
+        signUpPasswordConfirmation: ''
+      })
+      this.props.history.push("/");
   }
   render() {
     return(
       <React.Fragment>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Sign up for an account</legend>
 
@@ -60,4 +61,4 @@ class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm
+export default withRouter(SignUpForm)
