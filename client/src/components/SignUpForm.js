@@ -17,6 +17,8 @@ class SignUpForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    try {
+      await this.props.createUser(this.state)
       this.setState({
         signUpName: '',
         signUpEmail: '',
@@ -24,6 +26,9 @@ class SignUpForm extends Component {
         signUpPasswordConfirmation: ''
       })
       this.props.history.push("/");
+    } catch (e) {
+      alert(e.message);
+    }
   }
   render() {
     return(
