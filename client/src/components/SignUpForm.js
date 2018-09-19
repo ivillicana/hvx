@@ -15,7 +15,7 @@ class SignUpForm extends Component {
     })
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault()
     try {
       await this.props.createUser(this.state)
