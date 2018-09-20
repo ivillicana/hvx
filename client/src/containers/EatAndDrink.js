@@ -27,7 +27,8 @@ class EatAndDrink extends Component {
         
         <div className="row">
           <div className="col-md-4">
-            <Breakfast />
+          <h2>Breakfast & Brunch</h2>
+            <Breakfast restaurants={this.props.breakfastRestaurants}/>
           </div>
           <div className="col-md-4">lunch</div>
           <div className="col-md-4">dinner</div>
