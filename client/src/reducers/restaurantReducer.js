@@ -10,7 +10,7 @@ export default function restaurantReducer (
   switch (action.type) {
     
     case 'FETCH_BREAKFAST_RESTAURANTS':
-      return {...state, breakfast: action.payload}
+      return {...state, breakfast: [...action.payload]}
   
     default:
       return state;
