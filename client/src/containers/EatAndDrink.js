@@ -2,12 +2,15 @@ import React, { Component }from "react";
 import {connect} from 'react-redux'
 import Header from '../components/Header'
 import Breakfast from '../components/eatAndDrink/Breakfast'
+import Dinner from '../components/eatAndDrink/Dinner'
 
 import {fetchBreakfastItems} from '../actions/eatAndDrinkActions'
+import {fetchDinnerItems} from '../actions/eatAndDrinkActions'
 
 class EatAndDrink extends Component {
   componentDidMount(){
     this.props.fetchBreakfastItems()
+    this.props.fetchDinnerItems()
   }
 
   render(){
@@ -31,7 +34,10 @@ class EatAndDrink extends Component {
             <Breakfast restaurants={this.props.breakfastRestaurants}/>
           </div>
           <div className="col-md-4">lunch</div>
-          <div className="col-md-4">dinner</div>
+          <div className="col-md-4">
+          <h2>Dinner</h2>
+          <Dinner restaurants={this.props.dinnerRestaurants}/>
+          </div>
         </div>
 
       </div>
@@ -39,7 +45,8 @@ class EatAndDrink extends Component {
   }
 }
 const mapStateToProps = state => ({
-  breakfastRestaurants: state.restaurants.breakfast
+  breakfastRestaurants: state.restaurants.breakfast,
+  dinnerRestaurants: state.restaurants.dinner
 });
 
-export default connect(mapStateToProps, {fetchBreakfastItems})(EatAndDrink)
+export default connect(mapStateToProps, {fetchBreakfastItems, fetchDinnerItems})(EatAndDrink)
