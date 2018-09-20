@@ -1,14 +1,44 @@
 import React, { Component }from "react";
 import {connect} from 'react-redux'
+import Header from '../components/Header'
+import Breakfast from '../components/eatAndDrink/Breakfast'
+
+import {fetchBreakfastItems} from '../actions/eatAndDrinkActions'
 
 class EatAndDrink extends Component {
+  componentDidMount(){
+    this.props.fetchBreakfastItems()
+  }
+
   render(){
+    const title = "Eat & Drink"
+    const briefSummary = "Looking for a place to eat or enjoy a drink while in the Hudson Valley?"
+
     return(
-      <div>
-        This is the EatAndDrink Component
+      <div className="container">
+
+        <div className="row">
+          <div className="col-md-12">
+            <Header 
+            title={title}
+            briefSummary={briefSummary}/>          
+          </div>
+        </div>
+        
+        <div className="row">
+          <div className="col-md-4">
+            <Breakfast />
+          </div>
+          <div className="col-md-4">lunch</div>
+          <div className="col-md-4">dinner</div>
+        </div>
+
       </div>
     )
   }
 }
+const mapStateToProps = state => ({
+  breakfastRestaurants: state.restaurants.breakfast
+});
 
-export default connect()(EatAndDrink)
+export default connect(mapStateToProps, {fetchBreakfastItems})(EatAndDrink)
