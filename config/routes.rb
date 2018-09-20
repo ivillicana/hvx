@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   get '/breakfast-and-brunch', to: "yelp#fetch_breakfast_and_brunch"
+  get '/dinner', to: "yelp#fetch_dinner"
 end
