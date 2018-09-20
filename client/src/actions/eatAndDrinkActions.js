@@ -6,3 +6,12 @@ export const fetchBreakfastItems = () => dispatch => {
       payload: restaurants
     }))
 }
+
+export const fetchDinnerItems = () => dispatch => {
+  fetch('/dinner')
+    .then(res => res.json())
+    .then(restaurants => dispatch({
+      type: 'FETCH_DINNER_RESTAURANTS',
+      payload: restaurants
+    }))
+}
