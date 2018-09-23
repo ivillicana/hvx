@@ -1,6 +1,5 @@
 import 'bootswatch/dist/united/bootstrap.css'
-import $ from 'jquery';
-import Popper from 'popper.js';
+
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 import React from 'react';
@@ -14,6 +13,7 @@ import NavBar from './containers/NavBar'
 import Footer from './containers/Footer'
 import Activities from './containers/Activities'
 import EatAndDrink from './containers/EatAndDrink'
+
 import store from './store'
 
 import registerServiceWorker from './registerServiceWorker';
