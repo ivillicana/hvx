@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Drinks extends Component {
   formattedRestaurants () {
     return this.props.restaurants.map(restaurant => {
-      const location = `${restaurant.location.address1}, ${restaurant.location.city}, ${restaurant.location.state} ${restaurant.location.zip_code}`
+      /*const location = `${restaurant.location.address1}, ${restaurant.location.city}, ${restaurant.location.state} ${restaurant.location.zip_code}`*/
 
       return <Link key={restaurant.id} to={`eat-drink/${restaurant.id}`}><span className="list-group-item list-group-item-action flex-column align-items-start" role="tab" key={restaurant.id}>
           <div className="d-flex w-100 justify-content-between">
