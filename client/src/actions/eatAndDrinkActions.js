@@ -15,3 +15,22 @@ export const fetchDinnerItems = () => dispatch => {
       payload: restaurants
     }))
 }
+
+export const fetchDrinksItems = () => dispatch => {
+  fetch('/drinks')
+    .then(res => res.json())
+    .then(restaurants => dispatch({
+      type: 'FETCH_DRINKS_RESTAURANTS',
+      payload: restaurants
+    }))
+}
+
+export const fetchRestaurant = (url) => dispatch => {
+
+  fetch(`/eat-drink/${url}`)
+    .then(res => res.json())
+    .then(restaurant => dispatch({
+      type: 'FETCH_RESTAURANT',
+      payload: restaurant
+    }))
+}
