@@ -2,7 +2,8 @@ export default function userReducer (
   state = {
       name: '',
       id: '',
-      email: ''
+      email: '',
+      token: ''
   },
   action
 ) {
@@ -12,6 +13,10 @@ export default function userReducer (
         name: action.payload.name,
         email: action.payload.email,
         id: action.payload.id
+      }
+    case 'LOG_IN_USER':
+      return {...state,
+        token: action.payload.jwt
       }
     default:
       return state;
