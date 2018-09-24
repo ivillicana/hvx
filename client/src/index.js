@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { Provider } from 'react-redux'
 
 import Home from './containers/Home';
-import LogIn from './containers/LogIn';
 import NavBar from './containers/NavBar'
 import Footer from './containers/Footer'
 import Activities from './containers/Activities'
@@ -24,7 +23,6 @@ ReactDOM.render(
       <React.Fragment>
         <NavBar />
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={LogIn} />
         <Route exaxt path="/activities" component={Activities}/>
         <Route exaxt path="/eat-drink" component={EatAndDrink}/>
         <Footer />
