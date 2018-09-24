@@ -14,9 +14,9 @@ import {fetchDrinksItems} from '../actions/eatAndDrinkActions'
 
 class EatAndDrink extends Component {
   componentDidMount(){
-    this.props.fetchBreakfastItems()
-    this.props.fetchDinnerItems()
-    this.props.fetchDrinksItems()
+    this.props.fetchBreakfastItems(jwtToken)
+    this.props.fetchDinnerItems(jwtToken)
+    this.props.fetchDrinksItems(jwtToken)
   }
 
   render(){
@@ -64,7 +64,7 @@ class EatAndDrink extends Component {
 const mapStateToProps = state => ({
   breakfastRestaurants: state.restaurants.breakfast,
   dinnerRestaurants: state.restaurants.dinner,
-  drinksRestaurants: state.restaurants.drinks
+  drinksRestaurants: state.restaurants.drinks,
 });
 
 export default connect(mapStateToProps, {fetchBreakfastItems, fetchDinnerItems, fetchDrinksItems})(EatAndDrink)
