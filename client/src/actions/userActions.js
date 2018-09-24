@@ -18,3 +18,23 @@ export const createUser = (userData) => dispatch => {
   })
 }
 
+export const logInUser = (userData) => dispatch => {
+  fetch('/user_token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      auth: {
+        email: userData.logInEmail,
+        password: userData.logInPassword
+      }
+    })
+  })
+  .then(response => response.json())
+  .then(token => {
+    localStorage.setItem('jwtToken', token.jwt)
+    
+  })
+}
+
