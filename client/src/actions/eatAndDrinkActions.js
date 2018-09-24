@@ -25,9 +25,9 @@ export const fetchDrinksItems = () => dispatch => {
     }))
 }
 
-export const fetchRestaurant = (url) => dispatch => {
+export const fetchRestaurant = (id) => dispatch => {
 
-  fetch(`/eat-drink/${url}`)
+  fetch(`/eat-drink/${id}`)
     .then(res => res.json())
     .then(restaurant => dispatch({
       type: 'FETCH_RESTAURANT',
