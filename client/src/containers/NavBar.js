@@ -26,27 +26,21 @@ class NavBar extends Component {
               activeStyle={activeLinkStyle}
               ><span className="nav-link">Home</span></NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                to="/activities"
-                exact
-                activeStyle={activeLinkStyle}
-                ><span className="nav-link">Activities</span></NavLink>
-            </li>
-            <li className="nav-item">
-            <NavLink
-                to="/eat-drink"
-                exact
-                activeStyle={activeLinkStyle}
-                ><span className="nav-link">Eat & Drink</span></NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/login"
-                exact
-                activeStyle={activeLinkStyle}
-                ><span className="nav-link">Log In</span></NavLink>
-            </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/activities"
+                  exact
+                  activeStyle={activeLinkStyle}
+                  ><span className="nav-link">Activities</span></NavLink>
+              </li>
+            
+              <li className="nav-item">
+                <NavLink
+                  to="/eat-drink"
+                  exact
+                  activeStyle={activeLinkStyle}
+                  ><span className="nav-link">Eat & Drink</span></NavLink>
+              </li>
           </ul>
           
         </div>
