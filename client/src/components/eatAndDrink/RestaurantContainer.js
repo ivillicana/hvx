@@ -14,26 +14,11 @@ import fourHalf from '../../images/yelpStars/fourHalf.png'
 import five from '../../images/yelpStars/five.png'
 
 class RestaurantContainer extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      restaurant: {
-        name: '',
-        location: {
-          address1: '',
-
-        }
-      }
-    }
-  }
 
   componentDidMount(){
     this.props.fetchRestaurant(this.props.match.params.restaurantId)
   }
-  componentWillUnmount () {
-    
-  }
-  
+
   render(){
     const rest = this.props.restaurant
     let starRating;
