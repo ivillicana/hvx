@@ -11,7 +11,7 @@ class YelpController < ApplicationController
     end
     body = JSON.parse(resp.body)
     restaurants = body['businesses']
-    json_response(restaurants)
+    render json: restaurants, status: 200
   end
 
   def fetch_dinner
@@ -20,7 +20,7 @@ class YelpController < ApplicationController
     end
     body = JSON.parse(resp.body)
     restaurants = body['businesses']
-    json_response(restaurants)
+    render json: restaurants, status: 200
   end
 
   def fetch_drinks
@@ -29,7 +29,7 @@ class YelpController < ApplicationController
     end
     body = JSON.parse(resp.body)
     restaurants = body['businesses']
-    json_response(restaurants)
+    render json: restaurants, status: 200
   end
 
   def fetch_events
@@ -38,7 +38,7 @@ class YelpController < ApplicationController
     end
     body = JSON.parse(resp.body)
     restaurants = body['businesses']
-    json_response(restaurants)
+    render json: restaurants, status: 200
   end
 
   def fetch_restaurant
@@ -46,7 +46,7 @@ class YelpController < ApplicationController
       req.headers['Authorization'] = "Bearer GX_Sex34bJpD58wcxXMLluz0wksabbmzFQ2Tk1TGfPY3TmUJRsMMyW3gd7b0pLQoHs5X1ffG4HyCQXlVcCPtuIWez4AetJZsLDebPv4JJK0YPD2ou-litu4smbSjW3Yx"
     end
     restaurant = JSON.parse(resp.body)
-    json_response(restaurant)
+    render json: restaurant, status: 200
   end
 
 end
