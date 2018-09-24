@@ -14,9 +14,9 @@ import {fetchDrinksItems} from '../actions/eatAndDrinkActions'
 
 class EatAndDrink extends Component {
   componentDidMount(){
-    this.props.fetchBreakfastItems(jwtToken)
-    this.props.fetchDinnerItems(jwtToken)
-    this.props.fetchDrinksItems(jwtToken)
+    this.props.fetchBreakfastItems()
+    this.props.fetchDinnerItems()
+    this.props.fetchDrinksItems()
   }
 
   render(){

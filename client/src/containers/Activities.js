@@ -55,7 +55,7 @@ class Activities extends Component {
 const mapStateToProps = state => ({
   museums: state.activities.museums,
   performingArts: state.activities.performingArts,
-  nature: state.activities.nature
+  nature: state.activities.nature,
 })
 
 export default connect(mapStateToProps, {fetchMuseums, fetchPerformingArts, fetchNature})(Activities)
