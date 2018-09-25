@@ -53,6 +53,15 @@ class NavBar extends Component {
                   activeStyle={activeLinkStyle}
                   ><span className="nav-link">Eat & Drink</span></NavLink>
               </li>
+
+              <li className="nav-item">
+                <NavLink
+                  to="/neighborhood"
+                  exact
+                  activeStyle={activeLinkStyle}
+                  ><span className="nav-link">Neighborhood</span></NavLink>
+              </li>
+
               <li className="nav-item">
                 <Link 
                   to="/"
