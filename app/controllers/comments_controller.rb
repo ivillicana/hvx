@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post.comments.create!(comment_params)
+    current_user.comments.create!(content: params[:content], post_id: @post.id)
     json_response(@post, :created)
   end
 
