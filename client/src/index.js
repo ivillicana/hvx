@@ -21,11 +21,11 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.Fragment>
-        <NavBar />
+        <Route component={NavBar} />
         <Route exact path="/" component={Home} />
         <Route exaxt path="/activities" component={Activities}/>
         <Route exaxt path="/eat-drink" component={EatAndDrink}/>
-        <Footer />
+        <Route component={Footer} />
       </React.Fragment>
     </Router>
   </Provider>, 
