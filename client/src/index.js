@@ -13,6 +13,7 @@ import Footer from './containers/Footer'
 import Activities from './containers/Activities'
 import EatAndDrink from './containers/EatAndDrink'
 import LogIn from './containers/LogIn'
+import Neighborhood from './containers/Neighborhood'
 
 import store from './store'
 
@@ -24,9 +25,10 @@ ReactDOM.render(
       <React.Fragment>
         <Route component={NavBar} />
         <Route exact path="/" component={Home} />
-        <Route exaxt path="/activities" component={Activities}/>
-        <Route exaxt path="/eat-drink" component={EatAndDrink}/>
-        <Route exaxt path="/login" component={LogIn}/>
+        <Route exact path="/activities" component={Activities}/>
+        <Route exact path="/eat-drink" component={EatAndDrink}/>
+        <Route exact path="/login" component={LogIn}/>
+        <Route exact path="/neighborhood" component={Neighborhood} />
         <Route component={Footer} />
       </React.Fragment>
     </Router>
