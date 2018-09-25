@@ -18,6 +18,8 @@ class Neighborhood extends Component {
           </div>
         </div>
 
+        <PostsContainer />
+
       </div>
     )
   }
