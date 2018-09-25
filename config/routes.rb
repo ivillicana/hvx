@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  post 'auth/login', to: 'authentication#authenticate'
+  post 'signup', to: 'users#create'
+
   get '/breakfast-and-brunch', to: "yelp#fetch_breakfast_and_brunch"
   get '/dinner', to: "yelp#fetch_dinner"
   get '/drinks', to: "yelp#fetch_drinks"
