@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
+
 import {logOutUser} from '../actions/userActions'
 
 class NavBar extends Component {
