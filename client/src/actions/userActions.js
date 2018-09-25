@@ -16,6 +16,7 @@ export const createUser = (userData) => dispatch => {
   .then(response => response.json())
   .then(token => {
     localStorage.setItem('jwtToken', token.auth_token)
+    dispatch({type: 'CREATE_USER', payload: token.auth_token})
   })
 }
 
@@ -33,6 +34,11 @@ export const logInUser = (userData) => dispatch => {
   .then(response => response.json())
   .then(token => {
     localStorage.setItem('jwtToken', token.auth_token)
-    
+    dispatch({type: 'LOG_IN_USER', payload: token.auth_token})
   })
+}
+
+export const logOutUser = () => dispatch => {
+  localStorage.removeItem('jwtToken')
+  dispatch({type: 'LOG_OUT_USER', payload: ''})
 }

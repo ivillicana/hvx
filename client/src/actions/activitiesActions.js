@@ -1,5 +1,12 @@
 export const fetchMuseums = () => dispatch => {
-  fetch('/activities/museums')
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch('/activities/museums', {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
     .then(res => res.json())
     .then(museums => dispatch({
       type: 'FETCH_MUSEUMS',
@@ -8,7 +15,14 @@ export const fetchMuseums = () => dispatch => {
 }
 
 export const fetchPerformingArts = () => dispatch => {
-  fetch('/activities/performing-arts')
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch('/activities/performing-arts', {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
     .then(res => res.json())
     .then(pa => dispatch({
       type: 'FETCH_PERFORMING_ARTS',
@@ -17,7 +31,14 @@ export const fetchPerformingArts = () => dispatch => {
 }
 
 export const fetchNature= () => dispatch => {
-  fetch('/activities/nature')
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch('/activities/nature', {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
     .then(res => res.json())
     .then(centers => dispatch({
       type: 'FETCH_NATURE',
