@@ -1,7 +1,16 @@
 import React, {Component} from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import {logOutUser} from '../actions/userActions'
 
 class NavBar extends Component {
+
+  logOut() {
+    this.props.logOutUser()
+    
+  }
+
   render(){
     const activeLinkStyle = {
       color: '#fff'
@@ -26,6 +35,9 @@ class NavBar extends Component {
               activeStyle={activeLinkStyle}
               ><span className="nav-link">Home</span></NavLink>
             </li>
+
+            {localStorage.getItem('jwtToken') &&
+              <React.Fragment>
               <li className="nav-item">
                 <NavLink
                   to="/activities"
@@ -41,6 +53,24 @@ class NavBar extends Component {
                   activeStyle={activeLinkStyle}
                   ><span className="nav-link">Eat & Drink</span></NavLink>
               </li>
+              <li className="nav-item">
+                <Link 
+                  to="/"
+                  onClick={() => this.logOut()}>
+                <span className="nav-link">Log Out</span></Link>
+              </li>
+              </React.Fragment>
+            }
+          
+            {!localStorage.getItem('jwtToken') && 
+              <li className="nav-item">
+                <NavLink
+                  to="/login"
+                  exact
+                  activeStyle={activeLinkStyle}
+                  ><span className="nav-link">Log In/Sign Up</span></NavLink>
+              </li>
+            }
           </ul>
           
         </div>
@@ -50,4 +80,8 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+const mapStateToProps = state => ({
+  userToken: state.user.token
+})
+
+export default connect(mapStateToProps, {logOutUser})(NavBar)
