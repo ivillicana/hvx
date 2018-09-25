@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :posts do
+    resources :comments
+  end
+  
   get '/breakfast-and-brunch', to: "yelp#fetch_breakfast_and_brunch"
   get '/dinner', to: "yelp#fetch_dinner"
   get '/drinks', to: "yelp#fetch_drinks"
