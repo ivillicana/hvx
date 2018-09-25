@@ -32,7 +32,6 @@ export const logInUser = (userData) => dispatch => {
   })
   .then(response => response.json())
   .then(token => {
-    debugger;
     localStorage.setItem('jwtToken', token.auth_token)
     
   })

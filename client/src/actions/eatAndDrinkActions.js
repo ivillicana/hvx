@@ -1,5 +1,12 @@
 export const fetchBreakfastItems = () => dispatch => {
-  fetch('/breakfast-and-brunch')
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch('/breakfast-and-brunch', {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
     .then(res => res.json())
     .then(restaurants => dispatch({
       type: 'FETCH_BREAKFAST_RESTAURANTS',
@@ -8,7 +15,14 @@ export const fetchBreakfastItems = () => dispatch => {
 }
 
 export const fetchDinnerItems = () => dispatch => {
-  fetch('/dinner')
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch('/dinner', {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
     .then(res => res.json())
     .then(restaurants => dispatch({
       type: 'FETCH_DINNER_RESTAURANTS',
@@ -17,7 +31,14 @@ export const fetchDinnerItems = () => dispatch => {
 }
 
 export const fetchDrinksItems = () => dispatch => {
-  fetch('/drinks')
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch('/drinks', {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
     .then(res => res.json())
     .then(restaurants => dispatch({
       type: 'FETCH_DRINKS_RESTAURANTS',
@@ -26,8 +47,14 @@ export const fetchDrinksItems = () => dispatch => {
 }
 
 export const fetchRestaurant = (id) => dispatch => {
-
-  fetch(`/eat-drink/${id}`)
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch(`/eat-drink/${id}`, {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
     .then(res => res.json())
     .then(restaurant => dispatch({
       type: 'FETCH_RESTAURANT',
