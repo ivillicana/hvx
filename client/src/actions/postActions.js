@@ -53,7 +53,6 @@ export const createNewPost = (postData) => dispatch => {
 }
 
 export const createNewComment = commentData => dispatch => {
-  debugger;
   const jwtToken = localStorage.getItem('jwtToken')
   fetch(`/posts/${commentData.postId}/comments`, {
     method: 'POST',
