@@ -2,9 +2,15 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PostForm from '../components/neighborhood/PostForm'
 import PostComponent from '../components/neighborhood/PostComponent'
-import {fetchPosts} from '../actions/postActions'
+import {fetchPosts, createNewPost} from '../actions/postActions'
+import {withRouter} from 'react-router-dom'
+
 
 class PostsContainer extends Component {
+
+  loadPost(id){
+    this.props.history.push(`/posts/${id}`, {post: this.props.posts.find(post => post.id === id)})
+  }
 
   componentDidMount(){
     this.props.fetchPosts()
@@ -14,7 +20,7 @@ class PostsContainer extends Component {
       <React.Fragment>
       <div className="row mb-4">
         <div className="col-md-12">
-          <PostForm />
+          <PostForm createNewPost={this.props.createNewPost}/>
         </div>
       </div>
       <div className="container">
@@ -24,7 +30,9 @@ class PostsContainer extends Component {
               {this.props.posts && 
                 this.props.posts.map(post => {
                   return (
-                    <PostComponent post={post} key={post.id}/>
+                    <PostComponent post={post} key={post.id} 
+                    loadPostAndComments={this.loadPost.bind(this)}
+                    />
                   )
                 })}
             </div>
@@ -36,7 +44,7 @@ class PostsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state)=> ({
   posts: state.posts
 })
-export default connect(mapStateToProps, {fetchPosts})(PostsContainer)
+export default withRouter(connect(mapStateToProps, {fetchPosts, createNewPost})(PostsContainer))
