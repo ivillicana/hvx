@@ -11,9 +11,11 @@ class PostForm extends Component {
       [event.target.name]: event.target.value
     })
   }
-   handleSubmit = (event) => {
-     event.preventDefault()
-   }
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.createNewPost(this.state)
+    this.setState({title: '', content: ''})
+  }
 
    render () {
      return(
