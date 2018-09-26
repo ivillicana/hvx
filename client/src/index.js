@@ -12,6 +12,7 @@ import NavBar from './containers/NavBar'
 import Footer from './containers/Footer'
 import Activities from './containers/Activities'
 import EatAndDrink from './containers/EatAndDrink'
+import RestaurantContainer from './components/eatAndDrink/RestaurantContainer'
 import LogIn from './containers/LogIn'
 import Neighborhood from './containers/Neighborhood'
 import PostShow from './containers/PostShow'
@@ -28,6 +29,7 @@ ReactDOM.render(
         <Route exact path="/" component={Home} />
         <Route exact path="/activities" component={Activities}/>
         <Route exact path="/eat-drink" component={EatAndDrink}/>
+        <Route exact path='/eat-drink/:restaurantId' render={routerProps =>          <RestaurantContainer {...routerProps} />}/>
         <Route exact path="/login" component={LogIn}/>
         <Route exact path="/neighborhood" component={Neighborhood} />
         <Route path="/posts/:id" component={PostShow} />
