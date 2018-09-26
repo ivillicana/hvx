@@ -1,25 +1,18 @@
-# README
+# Hudson Valley Xplorer (hvx)
+A web application built with a React/Redux front-end and Ruby on Rails API that facilitates information for New York Hudson Valley's residents and visitors. For a brief walk-through on application use and features, view the [walk-through video](https://youtu.be/HRBJ6vq1Bcg).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install Instructions
+- Fork and clone the github repo.
+- Run `bundle install`
+- Run `npm install`
+- Run `rake db:migrate`
+- Run `rake db:seed` to include seeded users, posts, and comments
+- To run a local server, use `rake start` from the root folder
 
-Things you may want to cover:
+## Contributing
 
-* Ruby version
+Bug reports and pull requests are welcome on GitHub at https://github.com/ivillicana/hvx. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* System dependencies
+## License
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# hvx
+The application is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
