@@ -14,6 +14,7 @@ import Activities from './containers/Activities'
 import EatAndDrink from './containers/EatAndDrink'
 import LogIn from './containers/LogIn'
 import Neighborhood from './containers/Neighborhood'
+import PostShow from './containers/PostShow'
 
 import store from './store'
 
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route exact path="/eat-drink" component={EatAndDrink}/>
         <Route exact path="/login" component={LogIn}/>
         <Route exact path="/neighborhood" component={Neighborhood} />
+        <Route path="/posts/:id" component={PostShow} />
         <Route component={Footer} />
       </React.Fragment>
     </Router>
