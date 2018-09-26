@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
 
 class CommentForm extends Component {
-  state = {
-    content: '',
-    post_id: ''
+  constructor(props){
+    super(props)
+    this.state = {
+      content: '',
+      postId: props.postId
+    }
   }
+  
 
   handleChange = (event) => {
     this.setState({
@@ -13,15 +17,15 @@ class CommentForm extends Component {
   }
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createNewPost(this.state)
-    this.setState({content: '', post_id: ''})
+    this.props.createNewComment(this.state)
+    this.setState({content: '', postId: ''})
   }
 
    render () {
      return(
-       <div className="row">
+       <div className="row mt-4">
         <div className="col-md-5">
-          <form onSubmit={this.handleSubmit} id="comment-form" className="bg-light p-3 border border-primary rounded">
+          <form onSubmit={this.handleSubmit} id="comment-form" className="p-3 border border-info rounded">
           <fieldset>
             <legend className="h5">Leave a comment</legend>
 
