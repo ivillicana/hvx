@@ -1,14 +1,16 @@
 import React from 'react'
 
 const PostComponent = props => {
+  const commentCount = props.post.comments.length
   return (
     <React.Fragment>
       <div className="card">
         <div className="card-header" id={`heading${props.post.id}`}>
-          <h5 className="mb-0">
+          <h5 className="mb-0 d-flex justify-content-between align-items-center">
             <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#collapse${props.post.id}`} aria-expanded="true" aria-controls="collapseOne">
               {props.post.title}
             </button>
+            <span class="badge badge-primary badge-pill">{commentCount}</span>
           </h5>
         </div>
 
