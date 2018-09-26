@@ -10,7 +10,7 @@ const PostComponent = props => {
             <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#collapse${props.post.id}`} aria-expanded="true" aria-controls="collapseOne">
               {props.post.title}
             </button>
-            <span class="badge badge-primary badge-pill">{commentCount}</span>
+            <button onClick={() => props.loadPostAndComments(props.post.id)} className="badge badge-primary badge-pill btn-link btn">Comments: {commentCount}</button>
           </h5>
         </div>
 
