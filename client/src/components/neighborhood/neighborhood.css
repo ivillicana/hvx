@@ -1,0 +1,17 @@
+.comment {
+  background-color: rgba(131, 196, 207, 0.397);
+}
+
+#comment-form {
+  background-color: rgba(245, 245, 245, 0.767);
+  border-width: 5px !important;
+}
+
+.post-container {
+  background-color: rgb(255, 144, 113)
+}
+
+.comment-container {
+  border: 5px solid rgb(255, 144, 113);
+  background-color: rgba(245, 245, 245, 0.562);
+}
