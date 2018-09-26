@@ -35,3 +35,24 @@ export const createNewPost = (postData) => dispatch => {
       payload: post
     }))
 }
+
+export const createNewComment = commentData => dispatch => {
+  debugger;
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch(`/posts/${commentData.postId}/comments`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    },
+    body: JSON.stringify({
+      content: commentData.content
+    })
+  })
+    .then(resp => resp.json())
+    .then(post => dispatch({
+      type: 'CREATE_COMMENT',
+      payload: post
+    }))
+}
