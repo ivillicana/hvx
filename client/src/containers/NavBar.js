@@ -68,6 +68,11 @@ class NavBar extends Component {
                   onClick={() => this.logOut()}>
                 <span className="nav-link">Log Out</span></Link>
               </li>
+              {(this.props.user ||localStorage.getItem('user')) &&
+                <li className="nav-item">
+                  <span className="nav-link">Welcome {this.props.user.name || localStorage.getItem('user')}</span>
+                </li>
+              }
               </React.Fragment>
             }
           
@@ -90,7 +95,8 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  userToken: state.user.token
+  userToken: state.user.token,
+  user: state.user.user
 })
 
 export default connect(mapStateToProps, {logOutUser})(NavBar)
