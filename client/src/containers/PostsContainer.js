@@ -9,7 +9,7 @@ import {withRouter} from 'react-router-dom'
 class PostsContainer extends Component {
 
   loadPost(id){
-    this.props.history.push(`/posts/${id}`, {post: this.props.posts.find(post => post.id === id)})
+    this.props.history.push(`/posts/${id}`)
   }
 
   componentDidMount(){
