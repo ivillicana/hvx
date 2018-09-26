@@ -24,10 +24,10 @@ export const createNewPost = (postData) => dispatch => {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${jwtToken}`
     },
-    body: {
+    body: JSON.stringify({
       title: postData.title,
       content: postData.content
-    }
+    })
   })
     .then(resp => resp.json())
     .then(post => dispatch({
