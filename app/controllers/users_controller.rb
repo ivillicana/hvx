@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     json_response(response, :created)
   end
 
+  def show
+    user = current_user
+    json_response(user)
+  end
+
   private
 
   def user_params
