@@ -15,6 +15,22 @@ export const fetchPosts = () => dispatch =>{
   
 }
 
+export const fetchPost = postId => dispatch => {
+  const jwtToken = localStorage.getItem('jwtToken')
+  fetch(`/posts/${postId}`, {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${jwtToken}`
+    }
+  })
+  .then(resp => resp.json())
+  .then(post => dispatch({
+    type: 'FETCH_POST',
+    payload: post
+  }))
+}
+
 export const createNewPost = (postData) => dispatch => {
   const jwtToken = localStorage.getItem('jwtToken')
   fetch('/posts', {
