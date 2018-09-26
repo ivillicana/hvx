@@ -74,10 +74,6 @@ GEM
       concurrent-ruby (~> 1.0)
     jsonapi-renderer (0.2.0)
     jwt (1.5.6)
-    knock (2.1.1)
-      bcrypt (~> 3.1)
-      jwt (~> 1.5)
-      rails (>= 4.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -170,7 +166,6 @@ DEPENDENCIES
   faraday
   foreman (~> 0.85.0)
   jwt
-  knock
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry-rails
@@ -181,7 +176,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.3.3p222
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.2
