@@ -1,6 +1,7 @@
 export default function userReducer (
   state = {
-      token: ''
+      token: '',
+      user: {}
   },
   action
 ) {
@@ -15,8 +16,11 @@ export default function userReducer (
       }
     case 'LOG_OUT_USER':
       return {...state,
-        token: ''
+        token: '',
+        user: {}
       }
+    case 'SET_USER':
+      return {...state, user: {...action.payload}}
     default:
       return state;
   }
