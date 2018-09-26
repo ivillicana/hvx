@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import {connect} from 'react-redux'
+import './footer.css'
 
 import {logOutUser} from '../actions/userActions'
 
@@ -68,11 +69,7 @@ class NavBar extends Component {
                   onClick={() => this.logOut()}>
                 <span className="nav-link">Log Out</span></Link>
               </li>
-              {(this.props.user ||localStorage.getItem('user')) &&
-                <li className="nav-item">
-                  <span className="nav-link">Welcome {this.props.user.name || localStorage.getItem('user')}</span>
-                </li>
-              }
+              
               </React.Fragment>
             }
           
@@ -86,7 +83,9 @@ class NavBar extends Component {
               </li>
             }
           </ul>
-          
+          {(this.props.user ||localStorage.getItem('user')) &&
+            <span className="navbar-text welcome">Welcome {this.props.user.name || localStorage.getItem('user')}</span>
+          }
         </div>
       </nav>
      </React.Fragment>
