@@ -21,6 +21,7 @@ export const createUser = (userData) => dispatch => {
 }
 
 export const logInUser = (userData) => dispatch => {
+  
   fetch('/auth/login', {
     method: 'POST',
     headers: {
@@ -35,10 +36,24 @@ export const logInUser = (userData) => dispatch => {
   .then(token => {
     localStorage.setItem('jwtToken', token.auth_token)
     dispatch({type: 'LOG_IN_USER', payload: token.auth_token})
+    const jwtToken = localStorage.getItem('jwtToken')
+    fetch('/user', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(user => {
+        dispatch({type:'SET_USER', payload: user})
+        localStorage.setItem('user', user.name)
+      })
   })
 }
 
 export const logOutUser = () => dispatch => {
   localStorage.removeItem('jwtToken')
+  localStorage.removeItem('user')
   dispatch({type: 'LOG_OUT_USER', payload: ''})
 }
