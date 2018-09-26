@@ -2,7 +2,7 @@ import React from 'react'
 
 const CommentShow = props => {
   return(
-  <div className="row">
+  <div className="row rounded comment pt-2 mb-2">
     <div className="col-md-5">
       {props.comment.content}
       {props.comment.user_name && 
