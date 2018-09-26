@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  get '/user', to: 'users#show'
   
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
