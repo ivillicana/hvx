@@ -1,5 +1,5 @@
 # Hudson Valley Xplorer (hvx)
-A web application built with a React/Redux front-end and Ruby on Rails API that facilitates information for New York Hudson Valley's residents and visitors. For a brief walk-through on application use and features, view the [walk-through video](https://youtu.be/t6htcfnShfM).
+A web application built with a React/Redux front-end and Ruby on Rails API that facilitates information for New York Hudson Valley's residents and visitors. For a brief walk-through on application use and features, view the [walk-through video](https://youtu.be/t6htcfnShfM). A live preview of the project can be accessed through [heroku](https://hvx.herokuapp.com) (username: 'dtrump@gmail.com', password: 'password').
 
 ## Install Instructions
 - Fork and clone the github repo.
