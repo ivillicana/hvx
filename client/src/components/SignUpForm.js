@@ -3,11 +3,14 @@ import {withRouter} from 'react-router-dom'
 
 class SignUpForm extends Component {
   state = {
-    signUpName: '',
-    signUpEmail: '',
-    signUpPassword: '',
-    signUpPasswordConfirmation: '',
-    signUpCity: ''
+    error: undefined,
+    user: {
+      signUpName: '',
+      signUpEmail: '',
+      signUpPassword: '',
+      signUpPasswordConfirmation: '',
+      signUpCity: ''
+    }
   }
 
   handleOnChange = (event) => {
@@ -18,14 +21,16 @@ class SignUpForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.props.createUser(this.state)
+    this.props.createUser(this.state.user)
     this.setState({
+      user: {
         signUpName: '',
         signUpEmail: '',
         signUpPassword: '',
         signUpPasswordConfirmation: '',
         signUpCity: ''
-      })
+      }  
+    })
     this.props.history.push("/");
   }
   render() {
@@ -34,6 +39,7 @@ class SignUpForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Sign up for an account</legend>
+            {this.state.error && <p>{this.state.error}</p>}
 
             <div className="form-group">
               <label htmlFor="signUpName">Name</label>
