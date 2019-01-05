@@ -1,7 +1,8 @@
 export default function userReducer (
   state = {
       token: '',
-      user: {}
+      user: {},
+      error: ''
   },
   action
 ) {
@@ -21,6 +22,8 @@ export default function userReducer (
       }
     case 'SET_USER':
       return {...state, user: {...action.payload}}
+    case 'SET_ERROR':
+      return {...state, error: action.payload}
     default:
       return state;
   }
