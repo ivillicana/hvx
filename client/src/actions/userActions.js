@@ -38,6 +38,7 @@ export const createUser = (userData) => dispatch => {
   })
   .catch(error => {
     console.log('Error in Signing Up: ', error.statusText)
+    dispatch({type: 'SET_ERROR', payload: error.statusText})
   })
 }
 
