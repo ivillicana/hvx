@@ -9,6 +9,11 @@ class LogIn extends Component {
     return (
       <div className="container">
         <div className="row align-items-center">
+          <div className="col-md">
+            {this.props.error && <p className="error text-center">{this.props.error}</p>}
+          </div>
+        </div>
+        <div className="row align-items-center">
 
           <div className="col-md-5">
             <div className="bs-component">
@@ -36,4 +41,8 @@ class LogIn extends Component {
   }
 }
 
-export default connect(null, {createUser, logInUser})(LogIn);
+const mapStateToProps = state => ({
+  error: state.user.error
+})
+
+export default connect(mapStateToProps, {createUser, logInUser})(LogIn);
