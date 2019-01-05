@@ -31,7 +31,10 @@ class SignUpForm extends Component {
         signUpCity: ''
       }  
     })
-    this.props.history.push("/");
+    if (localStorage.getItem("user")){
+      this.props.history.push("/");
+    }
+    
   }
   render() {
     return(
