@@ -3,7 +3,6 @@ import {withRouter} from 'react-router-dom'
 
 class SignUpForm extends Component {
   state = {
-    error: undefined,
     user: {
       signUpName: '',
       signUpEmail: '',
