@@ -14,13 +14,17 @@ class SignUpForm extends Component {
   }
 
   handleOnChange = (event) => {
-    if (event.target.id === "signUpPasswordConfirmation"){
-      if (this.state.signUpPasswordConfirmation !== this.state.signUpPassword){
-        this.setState({passwordError: "Passwords must match"})
-      }
-    }
+    event.persist()
     this.setState({
       [event.target.id]: event.target.value
+    }, () => {
+      if (event.target.id === "signUpPasswordConfirmation"){
+        if (this.state.signUpPasswordConfirmation !== this.state.signUpPassword){
+          this.setState({passwordError: "Passwords must match"})
+        } else {
+          this.setState({passwordError: undefined})
+        }
+      }
     })
   }
 
