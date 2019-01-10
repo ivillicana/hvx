@@ -74,7 +74,7 @@ class SignUpForm extends Component {
             </div>
             <div className="form-group">
               <label htmlFor="signUpPasswordConfirmation">Confirm Password</label>
-              <span>{this.state.passwordError} </span>
+              <span className="password-error">{this.state.passwordError} </span>
               <input type="password" className="form-control" id="signUpPasswordConfirmation" placeholder="Confirm Password" value={this.state.signUpPasswordConfirmation} onChange={this.handleOnChange}/>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>

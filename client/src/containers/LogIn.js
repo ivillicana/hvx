@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import LogInForm from '../components/LogInForm'
 import SignUpForm from '../components/SignUpForm'
 import {createUser, logInUser} from '../actions/userActions'
+import './logIn.css'
 
 class LogIn extends Component {
   render() {
