@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 
 class SignUpForm extends Component {
   state = {
+    passwordError: undefined,
     user: {
       signUpName: '',
       signUpEmail: '',
@@ -13,6 +14,11 @@ class SignUpForm extends Component {
   }
 
   handleOnChange = (event) => {
+    if (event.target.id === "signUpPasswordConfirmation"){
+      if (this.state.signUpPasswordConfirmation !== this.state.signUpPassword){
+        this.setState({passwordError: "Passwords must match"})
+      }
+    }
     this.setState({
       [event.target.id]: event.target.value
     })
@@ -64,6 +70,7 @@ class SignUpForm extends Component {
             </div>
             <div className="form-group">
               <label htmlFor="signUpPasswordConfirmation">Confirm Password</label>
+              <span>{this.state.passwordError} </span>
               <input type="password" className="form-control" id="signUpPasswordConfirmation" placeholder="Confirm Password" value={this.state.signUpPasswordConfirmation} onChange={this.handleOnChange}/>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
