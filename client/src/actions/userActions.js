@@ -48,9 +48,9 @@ export const logOutUser = () => dispatch => {
 }
 
 const handleResponse = (response) => {
-  if (!response.ok) {
-    return Promise.reject({ status: response.status, statusText: response.statusText });
-  }
+  // if (!response.ok) {
+  //   return Promise.reject({ status: response.status, statusText: response.statusText });
+  // }
   return response.json()
 }
 
@@ -73,19 +73,24 @@ const handleUserLogIn = (token, dispatch) => {
 }
 
 const handleUserCreation = (token, dispatch) => {
-  localStorage.setItem('jwtToken', token.auth_token)
-  dispatch({type: 'CREATE_USER', payload: token.auth_token})
-  const jwtToken = localStorage.getItem('jwtToken')
-  fetch('/user', {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${jwtToken}`
-    }
-  })
-    .then(resp => resp.json())
-    .then(user => {
-      dispatch({type:'SET_USER', payload: user})
-      localStorage.setItem('user', user.name)
+  if (!token.auth_token){
+    dispatch({type: 'SET_ERROR', payload: token.message})
+  } else {
+    localStorage.setItem('jwtToken', token.auth_token)
+    dispatch({type: 'CREATE_USER', payload: token.auth_token})
+    const jwtToken = localStorage.getItem('jwtToken')
+    fetch('/user', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`
+      }
     })
+      .then(resp => resp.json())
+      .then(user => {
+        dispatch({type:'SET_USER', payload: user})
+        localStorage.setItem('user', user.name)
+      })
+  }
+ 
 }
