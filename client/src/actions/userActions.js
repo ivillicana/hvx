@@ -13,12 +13,7 @@ export const createUser = (userData) => dispatch => {
       location: userData.signUpCity
     })
   })
-  .then(response =>  {
-    if (!response.ok) {
-      return Promise.reject({ status: response.status, statusText: response.statusText });
-    }
-    return response.json()
-  })
+  .then(handleResponse)
   .then(token => {
     localStorage.setItem('jwtToken', token.auth_token)
     dispatch({type: 'CREATE_USER', payload: token.auth_token})
@@ -42,6 +37,8 @@ export const createUser = (userData) => dispatch => {
   })
 }
 
+
+
 export const logInUser = (userData) => dispatch => {
   
   fetch('/auth/login', {
@@ -54,12 +51,7 @@ export const logInUser = (userData) => dispatch => {
         password: userData.logInPassword
     })
   })
-  .then(response => {
-    if (!response.ok) {
-      return Promise.reject({ status: response.status, statusText: response.statusText });
-    }
-    return response.json()
-  })
+  .then(handleResponse)
   .then(token => {
     localStorage.setItem('jwtToken', token.auth_token)
     dispatch({type: 'LOG_IN_USER', payload: token.auth_token})
@@ -86,4 +78,11 @@ export const logOutUser = () => dispatch => {
   localStorage.removeItem('jwtToken')
   localStorage.removeItem('user')
   dispatch({type: 'LOG_OUT_USER', payload: ''})
+}
+
+const handleResponse = (response) => {
+  if (!response.ok) {
+    return Promise.reject({ status: response.status, statusText: response.statusText });
+  }
+  return response.json()
 }
