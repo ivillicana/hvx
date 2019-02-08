@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :comments
 
   validates_presence_of :name, :email, :password_digest, :location
-  validate :email, uniqueness: true
+  validates :email, uniqueness: true
 end
