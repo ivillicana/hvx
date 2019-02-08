@@ -16,10 +16,13 @@ class SignUpForm extends Component {
   handleOnChange = (event) => {
     event.persist()
     this.setState({
-      [event.target.id]: event.target.value
+      user: {
+        ...this.state.user,
+        [event.target.id]: event.target.value
+      }
     }, () => {
       if (event.target.id === "signUpPasswordConfirmation"){
-        if (this.state.signUpPasswordConfirmation !== this.state.signUpPassword){
+        if (this.state.user.signUpPasswordConfirmation !== this.state.user.signUpPassword){
           this.setState({passwordError: "Passwords must match"})
         } else {
           this.setState({passwordError: undefined})
@@ -51,7 +54,7 @@ class SignUpForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Sign up for an account</legend>
-            {this.state.error && <p>{this.state.error}</p>}
+            {this.state.passwordError && <p>{this.state.passwordError}</p>}
 
             <div className="form-group">
               <label htmlFor="signUpName">Name</label>
