@@ -28,13 +28,13 @@ class Profile extends Component {
     let user = this.state.user
     return (
       <div>
-        {/* {user &&
+        {user &&
         <div>
           <p>{user.name}</p>
           <p>{user.email}</p>
           <p>{user.location}</p>
         </div>
-        } */}
+        }
       </div>
     );
   }
