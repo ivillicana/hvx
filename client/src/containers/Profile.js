@@ -5,24 +5,24 @@ class Profile extends Component {
     user: null
   }
 
-  // componentDidMount() {
-  //   this.getUserData()
-  // }
+  componentDidMount() {
+    this.getUserData()
+  }
 
-  // getUserData = () => {
-  //   const jwtToken = localStorage.getItem('jwtToken')
-  //   fetch('/user', {
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //       Authorization: `Bearer ${jwtToken}`
-  //     }
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(userInfo => {
-  //     this.setState({user: userInfo})
-  //   })
-  // }
+  getUserData = () => {
+    const jwtToken = localStorage.getItem('jwtToken')
+    fetch('/user', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`
+      }
+    })
+    .then(resp => resp.json())
+    .then(userInfo => {
+      this.setState({user: userInfo})
+    })
+  }
 
   render() {
     let user = this.state.user
