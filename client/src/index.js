@@ -16,6 +16,7 @@ import RestaurantContainer from './components/eatAndDrink/RestaurantContainer'
 import LogIn from './containers/LogIn'
 import Neighborhood from './containers/Neighborhood'
 import PostShow from './containers/PostShow'
+import Profile from './containers/Profile'
 
 import store from './store'
 
@@ -32,6 +33,7 @@ ReactDOM.render(
         <Route exact path='/eat-drink/:restaurantId' render={routerProps =>          <RestaurantContainer {...routerProps} />}/>
         <Route exact path="/login" component={LogIn}/>
         <Route exact path="/neighborhood" component={Neighborhood} />
+        <Route exact path="/profile" component={Profile} />
         <Route path="/posts/:id" component={PostShow} />
         <Route component={Footer} />
       </React.Fragment>
