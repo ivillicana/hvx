@@ -84,7 +84,13 @@ class NavBar extends Component {
             }
           </ul>
           {(this.props.user ||localStorage.getItem('user')) &&
-            <span className="navbar-text welcome">Welcome {this.props.user.name || localStorage.getItem('user')}</span>
+            <Link 
+              to="/profile"
+              exact
+              activeStyle={activeLinkStyle}
+              >
+              <span className="navbar-text welcome">Welcome {this.props.user.name || localStorage.getItem('user')}</span>
+            </Link>
           }
         </div>
       </nav>
